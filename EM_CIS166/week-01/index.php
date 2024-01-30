@@ -2,16 +2,6 @@ ExampleGet your own PHP Server
 <!DOCTYPE html>
 <html>
 <body>
- 
-An page heading (H1)
-Display the following dates (one per line)
-Todays date
-Current time
-The date/time one week in future
-How many days since 1/1/2023
-How many weeks until this spring's graduation. 
-Each operation must be commented using inline comments in your code.
-//Display the following dates (one per line)
 
 <?php 
 echo "<h1> Module 2 Assignment" //An page heading (H1)
