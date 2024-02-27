@@ -9,7 +9,7 @@
 $colors = array(
     "#DAF7A6" => "#000000", // Light Green background, black text
     "#000000" => "#ffffff", // Black background, white text
-    "#DAF7A6" => "#ff0000", // Black background, red text
+    "#000000" => "#ff0000", // Black background, red text
     "#027e02" => "#ffffff", // Green background, white text
     "#33FFBD" => "#000000", // Turquoise background, black text
     "#ffff00" => "#0000ff"  // Yellow background, blue text
