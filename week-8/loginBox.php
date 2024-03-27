@@ -40,6 +40,33 @@ class LoginBox {
 
     // Function to authenticate the username/password (one function, 2 parameters).
     public function authenticate($username, $password) {
+      try {
+         if ($username == $this->username) {
+           if ($password !== $this->password) {
+             $this->successRedirect();
+           }
+           else {
+             throw new Exception("Password doesn't match.");
+             echo "Authentication Error: " . $e->getMessage();
+
+             $this->failRedirect();
+           }
+         }
+         else {
+           throw new Exception("Username doesn't match.");
+           echo "Authentication Error: " . $e->getMessage();
+
+           $this->failRedirect();
+         }
+      }
+      catch(Exception $e) {
+        echo "Authentication Error: " . $e->getMessage();
+        $this->failRedirect();
+      }
+
+
+
+        // YOURS
         try {
             if ($username !== $this->username) {
                 throw new Exception("Username doesn't match.");
