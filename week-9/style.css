@@ -1,0 +1,48 @@
+/*  Mindy Benson
+    3/25/2024
+    CIS166AE Module 9 */
+/* REQUIRED: Reset styles used in the CSS file, more than 3 selectors added 12-8-23 */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+figure {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+
+/* Header Styling */
+header {
+    background-color: #eb7f05;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+header h1 {
+    font-size: 36px;
+    animation: pulse 7s infinite;
+}
+
+/* Styling the navigation links */
+a {
+    text-decoration: none;
+    color: rgb(12, 31, 249);
+    transition: color 0.4s;
+}
+
+/* Hover effect for the navigation links */
+a:hover {
+    color: red;
+}
