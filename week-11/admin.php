@@ -1,12 +1,18 @@
 <?php
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "php_mysql_week11";
+  // Mindy Benson
+  // 4/15/2024
+  // CIS166AE Module 12
+     // Start the session. 
+     session_start();
+  
+  // Include the LoginBox class definition.
+   require_once 'loginBox.php';
+   include_once 'dbh.inc.php';
+   require_once 'delete.php';
 
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+      
+
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,6 +54,8 @@ if ($resultCheck > 0) {
     echo "<th>Username</th>";
     echo "<th>eMail</th>";
     echo "<th>Phone Number</th>";
+    echo"'<th>Edit</a></th>";
+    echo "<th>Delete</th>";
     echo "</tr>";
     // Output data of each row
     while ($row = mysqli_fetch_assoc($result)) {
@@ -57,6 +65,9 @@ if ($resultCheck > 0) {
         "</td><td>".$row["username"].
         "</td><td>".$row["email"].
         "</td><td>".$row["phone"].
+        "</td><td>".'<a href="edit.php">EDIT</a>'.
+        "</td><td>".'<button onclick="deleteRecord(echo $record["id"];>Delete</button>
+        '.
         "</td></tr>";
     }
     echo "</table>";

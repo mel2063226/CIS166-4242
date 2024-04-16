@@ -1,4 +1,7 @@
-<?php 
+<?php
+// Mindy Benson
+// 4/15/2024
+// CIS166AE Module 12
 
 // Connect to database
 $dbServername = "localhost";

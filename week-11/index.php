@@ -1,10 +1,12 @@
 <?php
-  // Mindy Benson
-  // 3/25/2024
-  // CIS166AE Module 9
+// Mindy Benson
+// 4/15/2024
+// CIS166AE Module 12
   
   // Include the LoginBox class definition.
   require_once 'loginBox.php';
+  include_once 'dbh.inc.php';
+
   
   // Start the session. (not needed yet, but will soon.  it belongs here)
   session_start();

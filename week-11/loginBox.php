@@ -4,8 +4,8 @@ include_once 'dbh.inc.php';
 
 <?php
 // Mindy Benson
-// 4/8/2024
-// CIS166AE Module 11
+// 4/15/2024
+// CIS166AE Module 12
 
 echo '<link rel="stylesheet" type="text/css" href="style.css"></head>';
 
@@ -115,37 +115,36 @@ class LoginBox {
     }
 
     // Add createAccount() function to loginBox class.
-    public function createAccount($formData) {
+    public function createAccount($conn, $first, $last, $user, $mail, $cell, $pass) {
         // Validate form data and insert into users table
         try {
-            // Example validation: ensuring name and password are not empty
-            if (empty($formData['username']) || empty($formData['password'])) {
-                throw new Exception("Name and Password cannot be empty.");
-            }
-          
-            // Check connection
-            if ($conn->connect_error) {
-                throw new Exception("Connection failed: " . $conn->connect_error);
-            }
+          // Check if username already exists
+    $query = "SELECT * FROM user WHERE username = '$user'";
+    $result = mysqli_query($conn, $query);
+    if (mysqli_num_rows($result) > 0) {
+        // Username already exists, display error message
+        echo "Error: Username already exists. Please choose a different username.";
+        return false; // Return false to indicate failure
+    } else {
+        // Username does not exist, proceed with insertion
+        $sql = "INSERT INTO user (first_name, last_name, username, email, phone, password) 
+                VALUES ('$first', '$last', '$user', '$mail', '$cell', '$pass')";
+        if (mysqli_query($conn, $sql)) {
+            // Record inserted successfully
+            echo "Record inserted successfully.";
+            return true; // Return true to indicate success
+        } else {
+            // Error inserting record
+            echo "Error: " . mysqli_error($conn);
+            return false; // Return false to indicate failure
+        }
+    }
 
-        
-            // Prepare and bind the SQL statement
-            $stmt = $conn->prepare("INSERT INTO users (name, password) VALUES (?, ?)");
-            $stmt->bind_param("ss", $formData['name'], $formData['password']);
-
-            // Execute the statement
-            if ($stmt->execute()) {
-                echo "Account created successfully.";
-            } else {
-                throw new Exception("Error creating account: " . $conn->error);
-            }
-
-            $stmt->close();
-            $conn->close();
         } catch (Exception $e) {
             echo "Error creating account: " . $e->getMessage();
         }
     }
+
 }
 ?>
 
