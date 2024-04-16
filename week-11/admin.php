@@ -35,21 +35,27 @@ $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 
 <?php
 // Fetch data from users table
-$sql = "SELECT * FROM users";
+$sql = "SELECT * FROM user";
 $result = mysqli_query($conn, $sql);
 $resultCheck = mysqli_num_rows($result);
 
 if ($resultCheck > 0) {
     echo "<table>";
-    echo "<tr><th>ID</th><th>Name</th><th>Email</th></tr>";
+    echo "<tr>";
+    echo "<th>ID</th>";
+    echo "<th>First Name</th>";
+    echo "<th>Last Name</th>";
+    echo "<th>Username</th>";
+    echo "<th>eMail</th>";
+    echo "<th>Phone Number</th>";
+    echo "</tr>";
     // Output data of each row
-    while ($row = $mysqli_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr><td>".$row["user_id"].
         "</td><td>".$row["first_name"].
         "</td><td>".$row["last_name"].
-        "</td><td>".$row["name"].
+        "</td><td>".$row["username"].
         "</td><td>".$row["email"].
-        "</td><td>".$row["phone"].
         "</td><td>".$row["phone"].
         "</td></tr>";
     }

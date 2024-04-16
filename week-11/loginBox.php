@@ -1,5 +1,5 @@
 <?php
-include_once 'includes/dbh.inc.php';
+include_once 'dbh.inc.php';
 ?>
 
 <?php
@@ -97,15 +97,19 @@ class LoginBox {
     public function getAccountForm() {
        //Return form with name, password, and other fields in users table.
         return "
-            <form action='signUp.php' method='post'>
-                <label for='name'>Name:</label>
-                <input type='text' id='name' name='name'><br><br>
-                <label for='password'>Password:</label>
-                <input type='password' id='password' name='password'><br><br>
+            <form action='signup.php' method='post'>
+                <label for='name'>First Name:</label>
+                <input type='text' id='first_name' name='first_name'><br><br>
+                <label for='name'>Last Name:</label>
+                <input type='text' id='last_name' name='last_name'><br><br>
+                <label for='name'>Username:</label>
+                <input type='text' id='username' name='username'><br><br>
                 <label for='email'>eMail:</label>
-                <input type='text' id='email' name='email'><br><br>
+                <input type='email' id='email' name='email'><br><br>
                 <label for='phone'>Phone Number:</label>
                 <input type='text' id='phone' name='phone'><br><br>
+                <label for='password'>Password:</label>
+                <input type='password' id='password' name='password'><br><br>
                 <input type='submit' value='Create Account'>
             </form>";
     }
@@ -113,10 +117,9 @@ class LoginBox {
     // Add createAccount() function to loginBox class.
     public function createAccount($formData) {
         // Validate form data and insert into users table
-        // Assuming $formData is an associative array with keys matching the column names in the users table
         try {
             // Example validation: ensuring name and password are not empty
-            if (empty($formData['name']) || empty($formData['password'])) {
+            if (empty($formData['username']) || empty($formData['password'])) {
                 throw new Exception("Name and Password cannot be empty.");
             }
           

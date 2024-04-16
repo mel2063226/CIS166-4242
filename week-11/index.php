@@ -43,6 +43,7 @@
     // Displays the login form using LoginBox object.
     $loginForm = $loginBox->getLoginForm();
     echo $loginForm;
+    echo '<br/><b>OR</b><br/><a href="signup.php">Sign Up!</a>';
   } catch (Exception $e) {
       echo "Error: " . $e->getMessage();
   }
