@@ -1,4 +1,8 @@
 <?php
+  // Mindy Benson
+  // 4/24/2024
+  // CIS166AE Module 13
+  
 session_start();
 
   // Include the LoginBox class definition.

@@ -1,7 +1,7 @@
 <?php
-// Mindy Benson
-// 4/15/2024
-// CIS166AE Module 12
+  // Mindy Benson
+  // 4/24/2024
+  // CIS166AE Module 13
   
   // Include the LoginBox class definition.
   require_once 'loginBox.php';

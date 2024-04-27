@@ -2,6 +2,8 @@
   // Mindy Benson
   // 4/24/2024
   // CIS166AE Module 13
+  include_once 'dbh.inc.php';
+
 
 // Function to delete record
 function deleteRecord($conn, $id) {

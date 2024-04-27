@@ -1,4 +1,8 @@
 <?php
+  // Mindy Benson
+  // 4/24/2024
+  // CIS166AE Module 13
+
 session_start();
 
 // Check if the user is logged in
@@ -8,6 +12,6 @@ if (!isset($_SESSION['valid_user']) || $_SESSION['valid_user'] !== true) {
     exit; // Stop further execution
 }
 
-// Your protected content goes here
+// Protected content goes here
 echo "Welcome to the protected page!";
 ?>
